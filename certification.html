@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Razi Haron Portfolio</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Protest+Revolution&family=Oswald&family=Barlow&display=swap" rel="stylesheet">
+
+  <style>
+    .main-body {
+      width: 100%;
+      height: fit-content;
+      min-height: 100vh;
+      background: none;
+      padding: 40px;
+      text-align: center;
+    }
+
+    /* --- Start of Cert Modal Image css--- */
+    .img-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .img-container > div {
+      flex: 0 0 calc(33.33% - 20px);
+      margin: 10px;
+    }
+
+    .img-container img {
+      width: 100%;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: 0.3s;
+      box-shadow: 0 -4px 6px -2px rgba(0, 0, 0, 0.1);
+    }
+
+    .img-container img:hover {
+      opacity: 0.7;
+    }
+
+    /* Modal (background) */
+    .modal {
+      display: none;
+      position: fixed; /* img stay in place*/
+      z-index: 1; /*img stay on top layer*/
+      padding-top: 100px;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgb(0, 0, 0);
+      background-color: rgba(0, 0, 0, 0.7); /*with opacity*/
+    }
+
+    /* modal content (image) */
+    .modal-content {
+      margin: auto;
+      display: block;
+      width: fit-content;
+      max-height: 95%;
+    }
+
+    /* Caption of modal image*/
+    #caption {
+      margin: auto;
+      display: block;
+      width: 80%;
+      max-width: 700px;
+      text-align: center;
+      color: #ccc;
+      padding: 10px 0;
+      height: 150px;
+    }
+
+    /* Animation */
+    .modal-content, #caption {
+      -webkit-animation-name: zoom;
+      -webkit-animation-duration: 0.6s;
+      animation-name: zoom;
+      animation-duration: 0.6s;
+    }
+
+    @-webkit-keyframes zoom {
+      from {transform: scale(0);}
+      to {-webkit-transform: scale(1);}
+    }
+
+    @keyframes zoom {
+      from {transform: scale(0);}
+      to {transform: scale(1);}
+    }
+
+    /* Close button */
+    .close {
+      position: absolute;
+      top: 15px;
+      right: 35px;
+      color: #f1f1f1;
+      font-size: 40px;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .close:hover,
+    .close:focus {
+      color: #bbb;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    /* Full size image width on smaller screens */
+    @media only screen and (max-width: 700px) {
+      .modal-content {
+        width: 100%;
+      }
+    }
+
+    .img-caption {
+      text-align: center;
+      color: black;
+      padding: 10px 0;
+      margin-top: 5px;
+    }
+
+    /* --- End of Cert Modal Image css--- */
+
+  </style>
+
+</head>
+<body>
+    <div class="container">
+        <header>
+          <div class="logo">
+            <p>MOHD FAHRURRAZI BIN HARON</p>
+          </div>
+          
+          <nav>
+            <ul>
+              <li><a href="index.html">ABOUT</a></li>
+              <li><a href="portfolio.html">PORTFOLIO</a></li>
+              <li><a href="experience.html">CV</a></li>
+              <li><a href="certification.html">CERTIFICATION</a></li>
+              <li><a href="gallery.html">GALLERY</a></li>
+              <li><a href="other.html">OTHER</a></li>
+              <li><a href="contact.html">CONTACT</a></li>
+            </ul>
+          </nav>
+            
+        </header>
+
+        <div class="main-body">
+          <div>
+            <h2>LIST OF CERTIFICATIONS:</h2>
+            <br>
+          </div>
+          <div class="img-container">
+            <div><img src="assets/Solid Edge Expert Cert.png" alt="Solid Edge Expert Level Certification" onclick="openModal('assets/Solid Edge Expert Cert.png', 'Solid Edge Expert Certification')">
+             <div class="img-caption">Solid Edge Expert Level Certification</div>
+            </div>
+            <div><img src="assets/Google Project Management Professional Certificate.png" alt="Google Project Management Certificate" onclick="openModal('assets/Google Project Management Professional Certificate.png', 'Google Project Management Certificate')">
+              <div class="img-caption">Google Project Management Certificate</div>
+            </div>
+            <div><img src="assets/Suspension Development Training.png" alt="Suspension Development & Optimisation Training" onclick="openModal('assets/Suspension Development Training.png', 'Japanese Language Proficiency Test Level 2 Certificate')">
+              <div class="img-caption">Suspension Development & Optimisation Training</div>
+            </div>
+            <div><img src="assets/JLPT N2 Certification-1.png" alt="Japanese Language Proficiency Test Level 2 Certificate" onclick="openModal('assets/JLPT N2 Certification-1.png', 'Japanese Language Proficiency Test Level 2 Certificate')">
+              <div class="img-caption">Japanese Language Proficiency Test Level 2 Certificate</div>
+            </div>
+            <div><img src="assets/ISO 9001 Internal Auditor.png" alt="ISO 9001:2015 Internal Auditor Training" onclick="openModal('assets/ISO 9001 Internal Auditor.png', 'ISO 9001:2015 Internal Auditor Training')">
+              <div class="img-caption">ISO 9001:2015 Internal Auditor Training</div>
+            </div>
+            <div><img src="assets/Graduate Engineer BEM.png" alt="Graduate Engineer Board of Engineers Malaysia" onclick="openModal('assets/Graduate Engineer BEM.png', 'Graduate Engineer Board of Engineers Malaysia')">
+              <div class="img-caption">Graduate Engineer Board of Engineers Malaysia</div>
+            </div>
+            <div></div>
+            <div><img src="assets/VEMA 282-TF Hydraulic Platform Operation Course.png" alt="VEMA 282-TF Hydraulic Platform Operation Course" onclick="openModal('assets/VEMA 282-TF Hydraulic Platform Operation Course.png', 'VEMA 282-TF Hydraulic Platform Operation Course')">
+              <div class="img-caption">VEMA 282-TF Hydraulic Platform Operation Course</div>
+            </div>
+            <div></div>
+            <div></div>
+            <div>
+              <br>
+              <h2>ACADEMIC QUALIFICATIONS:</h2>
+              <br>
+            </div>
+            <div></div>
+            <div><img src="assets/B.Eng Mechanical System_ Gunma University.png" alt="Certificate of Graduation Gunma University B.Eng Mechanical System Engineering" onclick="openModal('assets/B.Eng Mechanical System_ Gunma University.png', 'Certificate of Graduation Gunma University B.Eng Mechanical System Engineering')">
+              <div class="img-caption">Certificate of Graduation Gunma University B.Eng Mechanical System Engineering</div>
+            </div>
+            <div><img src="assets/JABEE Certificate.png" alt="Certificate of Completion Japan Accreditation Board for Engineering Education" onclick="openModal('assets/JABEE Certificate.png', 'Certificate of Completion Japan Accreditation Board for Engineering Education')">
+              <div class="img-caption">Certificate of Completion <br>Japan Accreditation Board for Engineering Education</div>
+            </div>
+            <div><img src="assets/TOEIC.png" alt="Official Score Certificate Test Of English for International Communications (TOEIC)-日本語版" onclick="openModal('assets/TOEIC.png', 'Official Score Certificate Test Of English for International Communications')">
+              <div class="img-caption">Official Score Certificate <br>Test Of English for International Communications (TOEIC)-日本語版</div>
+            </div>
+          </div>
+
+          <!-- Modal -->
+          <div id="myModal" class="modal">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <img class="modal-content" id="modalImg">
+            <div id="modalCaption"></div>
+          </div>
+        </div>
+
+        <footer>
+          <p>&copy; 2024 Razi Haron. All rights reserved.</p>
+        </footer>
+          
+    </div>
+
+    <script>
+      
+      function openModal(imgSrc, caption) {
+        var modal = document.getElementById("myModal");
+        var modalImg = document.getElementById("modalImg");
+        var modalCaption = document.getElementById("modalCaption");
+
+        modal.style.display = "block";
+        modalImg.src = imgSrc;
+        modalCaption.innerHTML = caption;
+      }
+
+      function closeModal(){
+        var modal = document.getElementById("myModal");
+        modal.style.display = "none";
+      }
+
+    </script>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!--
+{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}
+{}                                                            {}
+{}             :::::::..     :::.     ::::::::::::            {}
+{}             ;;;;``;;;;    ;;`;;    '`````;;;;;;            {}
+{}              [[[,/[[['   ,[[ '[[,      .n[['[[[            {}
+{}              $$$$$$c    c$$$cc$$$c   ,$$P"  $$$            {}
+{}              888b "88bo, 888   888,,888bo,_ 888            {}
+{}              MMMM   "W"  YMM   ""`  `""*UMM MMM            {}
+{}   ::   .:    :::.     :::::::..       ...     :::.    :::. {}
+{}  ,;;   ;;,   ;;`;;    ;;;;``;;;;   .;;;;;;;.  `;;;;,  `;;; {}
+{} ,[[[,,,[[[  ,[[ '[[,   [[[,/[[['  ,[[     \[[,  [[[[[. '[[ {}
+{} "$$$"""$$$ c$$$cc$$$c  $$$$$$c    $$$,     $$$  $$$ "Y$c$$ {}
+{}  888   "88o 888   888, 888b "88bo,"888,_ _,88P  888    Y88 {}
+{}  MMM    YMM YMM   ""`  MMMM   "W"   "YMMMMMP"   MMM     YM {}
+{}                                                            {}
+{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}
+-->
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Razi Haron Portfolio</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Protest+Revolution&family=Oswald&family=Barlow&display=swap" rel="stylesheet">
+
+  <style>
+
+    #main-body {
+        min-height: 87vh;
+        width: 100%;
+        background: none;
+        padding: 1.25vw; /*20px, 100vw=1600px */
+    }
+
+    .heading {
+        text-align: center;
+        font-size: 2em; /* 2 times current font */
+        padding: 0; 
+    }
+
+    .details-box { 
+        height: fit-content;
+        display: flex;
+        flex-wrap: wrap;
+        background-color: rgba(255, 255, 255, 0.4);
+        margin: 1.25vw; /*20px, 100vw=1600px */
+        padding: 1.875vw; /*30px, 100vw=1600px */
+        border-radius: 8px;
+    }
+
+    .collage-box {
+        width: 26.25; /*420px, 40% x 65.625vw 100vw=1600px */
+        height: 21vw; /*336px, 100vw=1600px */
+        background: none;
+        border-radius: 8px;
+        margin-right: 3.125vw; /*50px, 100vw=1600px */
+    }
+
+    .collage-box img {
+        width: 26.25; /*420px, 40% x 65.625vw 100vw=1600px */
+        height: 21vw; /*336px, 100vw=1600px */
+        border-radius: 8px;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    }
+
+    .collage-box img:hover {
+        transform: scale(1.1);
+        transition: transform 0.3s ease;
+    }
+
+    .content-text {
+        flex: 1;
+        background: none;
+    }
+
+      /* --- Start of Cert Modal Image css--- */
+    
+    .cert-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .cert-container > div {
+        flex: 0 0 calc(33.33% - 20px); /*20px, 100vw=1600px */
+        margin: 0.625vw; /*10px, 100vw=1600px */
+    }
+
+    .cert-container img {
+        width: 100%;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: 0.3s;
+        box-shadow: 0 -4px 6px -2px rgba(0, 0, 0, 0.1);
+    }
+
+    .cert-container img:hover {
+        opacity: 0.7;
+    }
+
+    .cert-caption {
+        text-align: center;
+        padding: 0.625vw 0; /*10px, 100vw=1600px */
+        margin-top: 0.313vw; /*5px, 100vw=1600px */
+    }
+
+    /* Modal (background) */
+
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 1;
+        padding-top: 6.25vw; /*100px, 100vw=1600px */
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgb(0, 0, 0);
+        background-color: rgba(0, 0, 0, 0.7);
+    }
+
+    /* modal content (image) */
+    .modal-content {
+        margin: auto;
+        display: block;
+        width: fit-content;
+        max-height: 95%;
+    }
+
+    /* Caption of modal image*/
+    #caption {
+        margin: auto;
+        display: block;
+        width: 80%;
+        max-width: 43.75vw; /*700px, 100vw=1600px */
+        text-align: center;
+        color: #ccc;
+        padding: 0.625vw 0; /*10px, 100vw=1600px */
+        height: 9.375vw; /*150px, 100vw=1600px */
+    }
+
+    /* Animation */
+    .modal-content, #caption {
+      -webkit-animation-name: zoom;
+      -webkit-animation-duration: 0.6s;
+      animation-name: zoom;
+      animation-duration: 0.6s;
+    }
+
+    @-webkit-keyframes zoom {
+      from {transform: scale(0);}
+      to {-webkit-transform: scale(1);}
+    }
+
+    @keyframes zoom {
+      from {transform: scale(0);}
+      to {transform: scale(1);}
+    }
+
+    /* Close button */
+    .close {
+        position: absolute;
+        top: 0.938vw; /*15px, 100vw=1600px */
+        right: 2.188vw; /*35px, 100vw=1600px */
+        color: #f1f1f1;
+        font-size: 2.5vw; /*40px, 100vw=1600px */
+        font-weight: bold;
+        transition: 0.3s;
+    }
+
+    .close:hover,
+    .close:focus {
+      color: #bbb;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    /* Full size image width on smaller screens */
+    @media only screen and (max-width: 700px) {
+      .modal-content {
+        width: 100%;
+      }
+    }
+
+    .cert-caption {
+      text-align: center;
+      color: black;
+      padding: 10px 0;
+      margin-top: 5px;
+    }
+
+    /* --- End of Cert Modal Image css--- */
+
+  </style>
+
+</head>
+
+<body>
+    <div class="container">
+        <header>
+          <div class="logo">
+            <p>MOHD FAHRURRAZI BIN HARON</p>
+          </div>
+          
+          <nav>
+            <ul>
+              <li><a href="index.html">ABOUT</a></li>
+              <li><a href="portfolio.html">PORTFOLIO</a></li>
+              <li><a href="experience.html">CV</a></li>
+              <li><a href="certification.html">CERTIFICATION</a></li>
+              <li><a href="gallery.html">GALLERY</a></li>
+              <li><a href="other.html">OTHER</a></li>
+              <li><a href="contact.html">CONTACT</a></li>
+            </ul>
+          </nav>
+            
+        </header>
+
+        <div id="main-body">
+            <p class="heading">OTHER WORK</p>
+            <div class="details-box">
+                <div class="collage-box">
+                    <img src="assets/Collage.png" alt="Photo Collage">
+                </div>
+                <div class="content-text">
+                    <h3>REAL ESTATE NEGOTIATOR (A.K.A PROPERTY AGENT)</h3>
+                    <h4 style="color: rgb(94, 93, 93);">October 2020 - Present (Full-time Freelance)<br>May 2018 - September 2020 (Weekend Part-Time Job)</h4>
+                    <br>
+                    <p style="font-size: 20px;">
+                        To gain skills and experience in sales, I challenged myself to be a Real Estate Negotiator on a part-time basis
+                        in 2018. Transitioning to full-time freelance status in October 2020, I have stayed in this role up to the
+                        present day. Throughout this tenure, I have garnered multiple top sales award for my sales performance within my agency.
+                    </p>
+                </div>
+            </div>
+            <br>
+            <h2 style="text-align: center;">AWARDS:</h2>
+            <br>
+            <div class="cert-container">
+                <div>
+                    <img src="assets/Top Achiever0819.png" alt="" onclick="openModal('assets/Top Achiever0819.png', 'Top Achiever Of The Month Award August 2019')">
+                    <div class="cert-caption">Top Achiever Of The Month Award August 2019</div>
+                </div>
+                <div>
+                    <img src="assets/Top Producer 1119.png" alt="" onclick="openModal('assets/Top Producer 1119.png', 'Top Producer Of The Month Award November 2019')">
+                    <div class="cert-caption">Top Producer Of The Month Award November 2019</div>
+                </div>
+                <div>
+                    <img src="assets/Top Producer 0720.png" alt="" onclick="openModal('assets/Top Producer 0720.png', 'Top Producer Of The Month Award July 2020')">
+                    <div class="cert-caption">Top Producer Of The Month Award July 2020</div>
+                </div>
+                <div>
+                    <img src="assets/Top Producer 1020.png" alt="" onclick="openModal('assets/Top Producer 1020.png', 'Top Producer Of The Month Award October 2020')">
+                    <div class="cert-caption">Top Producer Of The Month Award October 2020</div>
+                </div>
+            </div>
+
+            <!-- Modal -->
+            <div id="certModal" class="modal">
+                <span class="close" onclick="closeModal()">&times;</span> <!-- &times = X-character -->
+                <img class="modal-content" id="modalImg">
+                <div id="modalCaption"></div>
+            </div>
+
+        </div>
+
+        <footer>
+          <p>&copy; 2024 Razi Haron. All rights reserved.</p>
+        </footer> 
+          
+    </div>
+
+    <script>
+        function openModal(imgSrc, caption) {
+            var modal = document.getElementById("certModal");
+            var modalImg = document.getElementById("modalImg");
+            var modalCaption = document.getElementById("modalCaption");
+
+            modal.style.display = "block";
+            modalImg.src = imgSrc;
+            modalCaption.innerHTML = caption;
+        }
+
+        function closeModal() {
+            var modal = document.getElementById("certModal");
+            modal.style.display = "none";
+        }
+
+    </script>
+    
+    <script src="script.js"></script> 
+
+</body>
+</html>

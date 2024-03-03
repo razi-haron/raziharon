@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Work Experience</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Protest+Revolution&family=Oswald&family=Barlow&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha384-gfdkjb5U4o/zCUp3HIAh5F/lPgCnm3ma5UP1vgKcEU7hF1B5zqAU9caI4lXfFvc/" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <style>
+
+        #main-body {
+            min-height: 87vh;
+            width: 100%;
+            background: none;
+            padding: 40px;
+        }
+
+        #contact-box {
+            width: 95%;
+            min-height: 40vh;
+            /*background-color: whitesmoke;*/
+            background: none;
+            opacity: 0.9;
+            margin-left: auto;
+            margin-right: auto;
+            border-radius: 10px;
+            box-shadow: 0 2px 6px 2px rgba(0, 0, 0, 0.1);
+            display: flex;
+        }
+
+        #photo-box {
+            width: fit-content;
+            height: 100%;
+            border: none;
+            overflow: hidden;
+        }
+
+        #photo-box img {
+            width: 100%;
+            border-bottom-left-radius: 10px;
+            align-items: end;
+        }
+
+        #text-box {
+          padding: 20px;
+          text-align: start;
+          background-image: linear-gradient(to right, #02226d, #0247f5);
+          -webkit-background-clip: text;
+          background-clip: text;
+          color: transparent;
+        }
+
+        .text-attribute {
+          color: rgb(58, 57, 57);
+          text-wrap: wrap;
+          font-size: 17px;
+          font-weight: lighter;
+        }
+
+        .text-bold {
+          font-weight: bold;
+          color: rgb(58, 57, 57);
+        }
+
+        table {
+          width: 100%;
+          margin-top: 30px;
+        }
+
+        
+        /* interactive social icons style starts here */
+        .social-container {
+          display: flex;
+        }
+
+        .social-container a {
+          display: inline-block;
+          position: relative;
+          width: 70px;
+          height: 70px;
+          line-height: 70px;
+          font-size: 40px;
+          text-align: center;
+          text-decoration: none;
+          color: #404040;
+          margin: 0 30px;
+          transition: 0.5s;
+        }
+
+        .social-container a span {
+          position: absolute;
+          transition: transform 0.5s;
+        }
+
+        .social-container a span:nth-child(1),
+        .social-container a span:nth-child(3) {
+          width: 100%;
+          height: 3px;
+          background: #404040;
+        }
+
+        .social-container a:nth-child(1) span:nth-child(1),
+        .social-container a:nth-child(2) span:nth-child(1),
+        .social-container a:nth-child(3) span:nth-child(1),
+        .social-container a:nth-child(4) span:nth-child(1) {
+          top: 0;
+          left: 0;
+          transform-origin: right;
+        }
+
+        .social-container a:hover span:nth-child(1) {
+          transform: scaleX(0);
+          transform-origin: left;
+          transition: transform 0.5s;
+        }
+
+        .social-container a span:nth-child(3) {
+          bottom: 0;
+          left: 0;
+          transform-origin: left;
+        }
+
+        .social-container a:hover span:nth-child(3) {
+          transform: scaleX(0);
+          transform-origin: right;
+          transition: transform 0.5s;
+        }
+
+        .social-container a span:nth-child(2) {
+          top: 0;
+          left: 0;
+          transform: scale(0);
+          transform-origin: bottom;
+        }
+
+        .social-container a:hover span:nth-child(2) {
+          transform: scale(1);
+          transform-origin: top;
+          transition: transform 0.5s;
+        }
+
+        .social-container a span:nth-child(4) {
+          top: 0;
+          right: 0;
+          transform: scale(0);
+          transform-origin: top;
+        }
+  
+        .social-container a:hover span:nth-child(4) {
+          transform: scale(1);
+          transform-origin: bottom;
+          transition: transform 0.5s;
+        }
+  
+        .linkedin:hover {
+          color: #0077B5;
+        }
+  
+        .linkedin:hover span {
+          background: #0077B5;
+        }
+  
+        .whatsapp:hover {
+          color: #25D366;
+        }
+  
+        .whatsapp:hover span {
+          background: #25D366;
+        }
+  
+        .youtube:hover {
+          color: #FF0000;
+        }
+  
+        .youtube:hover span {
+          background: #FF0000;
+        }
+  
+        .email:hover {
+          color: #b18b0e;
+        }
+  
+        .email:hover span {
+          background: #b18b0e;
+        }
+        
+        /* interactive social icons style ends here */
+
+    </style>
+
+
+</head>
+<body>
+    
+  <div class="container">
+      <header>
+        <div class="logo">
+          <p>MOHD FAHRURRAZI BIN HARON</p>
+        </div>
+      
+        <nav>
+          <ul>
+            <li><a href="index.html">ABOUT</a></li>
+            <li><a href="portfolio.html">PORTFOLIO</a></li>
+            <li><a href="experience.html">CV</a></li>
+            <li><a href="certification.html">CERTIFICATION</a></li>
+            <li><a href="gallery.html">GALLERY</a></li>
+            <li><a href="other.html">OTHER</a></li>
+            <li><a href="contact.html">CONTACT</a></li>
+          </ul>
+        </nav>
+      </header>
+      <div id="main-body">
+        <div id="contact-box">
+            <div id="photo-box"><img src="assets/Razi2.png" alt="Razi_Haron"></div>
+            <div id="text-box">
+              <h1>MOHD FAHRURRAZI BIN HARON</h1>
+              <br>
+              <p class="text-attribute">Please feel free to reach out to me via the email address, phone number or social media provided below to discuss potential collaborations or work opportunities. 
+                <br>I am eager to explore engaging and challenging projects together.
+              </p>
+              <table>
+                <tr>
+                  <td class="text-bold">Email</td>
+                  <td class="text-bold">Phone</td>
+                </tr>
+                <tr>
+                  <td style="color: rgb(58, 57, 57);"><a href="mailto:razi_haron@outlook.com" style="color: rgb(58, 57, 57); text-decoration: none;">razi_haron@outlook.com</a></td>
+                  <td style="color: rgb(58, 57, 57);">60102319037</td> 
+                </tr>
+              </table>
+              <br>
+              <br>
+              <!-- social media interactive icons codes starts here -->
+              <div class="social-container">
+                <a class="linkedin" href="https://www.linkedin.com/in/fahrurrazi-haron/" target="_blank">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <i class="fa fa-linkedin" aria-hidden="true"></i>
+                </a>
+                <a class="whatsapp" href="https://wa.link/yeqyqi" target="_blank">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <i class="fa fa-whatsapp" aria-hidden="true"></i>
+                </a>
+                <a class="email" href="mailto:razi_haron@outlook.com">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <i class="fa fa-envelope" aria-hidden="true"></i>
+                </a>
+                <a class="youtube" href="https://www.youtube.com/@razi_haron" target="_blank">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <i class="fa fa-youtube" aria-hidden="true"></i>
+                </a>
+              </div>
+              <!-- social media interactive icons codes ends here -->
+            </div>
+        </div>
+      </div>
+  
+      <footer>
+        <p>&copy; 2024 Razi Haron. All rights reserved.</p>
+      </footer>  
+  </div>
+
+  <script src="script.js"></script>
+
+</body>
+</html>

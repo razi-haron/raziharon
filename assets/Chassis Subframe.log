@@ -1,0 +1,34 @@
+Solid Edge Translation To obj
+Date: Saturday,February 24,2024 01:27PM
+Output File: C:\Users\razi_\OneDrive\Documents\HTML PROJECT\razi haron.com-V2\assets\Chassis Subframe.obj
+Author: Unknown
+Organization: Unknown
+Source System: SOLID EDGE
+
+Hardware:
+Processor: 13th Gen Intel(R) Core(TM) i5-13600KF
+Operating System: Windows 10 Professional
+Installed Memory: 31.84 GB
+
+Software Information:
+Parasolid Version: 35.0.149
+PSBodyshop Version: 35.0.82
+OBJ Adapter Version: 11.0.82
+Solid Edge Version: 223.00.00.101 x64
+
+OBJ Export Options:
+Export Construction Solids:Off
+Export Displayed Parts:Off
+Export Construction Sheets:Off
+Enable Logging:On
+Export Textures:Off
+Export Flatten Assembly:On
+Export Construction Solids and Sheets if design bodies not present:Off
+Export Units:Millimeters
+Export Tolerance Value:0.001000
+Export Tolerance Type:Fine
+Export Surface Plane Angle Value:0.523599
+
+Translation progress:
+Translation process completed
+Time required to translate:00 : 20 : 45

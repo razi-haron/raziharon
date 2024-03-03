@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!--
+{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}
+{}                                                            {}
+{}             :::::::..     :::.     ::::::::::::            {}
+{}             ;;;;``;;;;    ;;`;;    '`````;;;;;;            {}
+{}              [[[,/[[['   ,[[ '[[,      .n[['[[[            {}
+{}              $$$$$$c    c$$$cc$$$c   ,$$P"  $$$            {}
+{}              888b "88bo, 888   888,,888bo,_ 888            {}
+{}              MMMM   "W"  YMM   ""`  `""*UMM MMM            {}
+{}   ::   .:    :::.     :::::::..       ...     :::.    :::. {}
+{}  ,;;   ;;,   ;;`;;    ;;;;``;;;;   .;;;;;;;.  `;;;;,  `;;; {}
+{} ,[[[,,,[[[  ,[[ '[[,   [[[,/[[['  ,[[     \[[,  [[[[[. '[[ {}
+{} "$$$"""$$$ c$$$cc$$$c  $$$$$$c    $$$,     $$$  $$$ "Y$c$$ {}
+{}  888   "88o 888   888, 888b "88bo,"888,_ _,88P  888    Y88 {}
+{}  MMM    YMM YMM   ""`  MMMM   "W"   "YMMMMMP"   MMM     YM {}
+{}                                                            {}
+{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}{}
+ -->
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Razi Haron Portfolio</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Protest+Revolution&family=Oswald&family=Barlow&display=swap" rel="stylesheet">
+
+  <style>
+
+    #main-container {
+        min-height: 87vh;
+        width: 100%;
+        background: none;
+        padding: 40px;
+    }
+
+    .heading {
+        text-align: center;
+        font-size: 2em; /* 2 times current font */
+        padding: 0; 
+    }
+
+    .image-gallery {
+        padding: 1.25vw; /*20px, 100vw=1600px */
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .image-gallery img {
+        height: 15.625vw; /*250px, 100vw=1600px */
+        width: 27.777vw; /*444.44px, 100vw=1600px */
+        transform: scale(1);
+        transition: transform 0.4s ease;
+    }
+
+    .img-box {
+        box-sizing: content-box;
+        margin: 0.625vw; /*10px, 100vw=1600px */
+        height: 15.625vw; /*250px, 100vw=1600px */
+        width: 27.777vw; /*444.44px, 100vw=1600px */
+        overflow: hidden;
+        display: inline-block;
+        color: white;
+        position: relative;
+        background-color: white;
+    }
+
+    .img-box:hover {
+        cursor: pointer;
+    }
+
+    .img-box:hover img {
+        transform: scale(1.1);
+    }
+
+    .transparent-box {
+        height: 15.625vw; /*250px, 100vw=1600px */
+        width: 27.777vw; /*444.44px, 100vw=1600px */
+        background-color: rgba(0, 0, 0, 0);
+        position: absolute;
+        top: 0;
+        left: 0;
+        transition: background-color 0.3s ease;
+    }
+
+    .img-box:hover .transparent-box {
+        background-color: rgba(0, 0, 0, 0.4);
+    }
+
+    .caption {
+        position: absolute;
+        bottom: 0.313vw; /*5px, 100vw=1600px */
+        left: 1.25vw; /*20px, 100vw=1600px */
+        opacity: 0;
+        transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+
+    .img-box:hover .caption {
+        transform: translateY(-0.438vw); /*-7px, 100vw=1600px */
+        opacity: 1;
+    }
+
+    .caption > p:nth-child(2) {  /* select 2nd child of <p> elements in class=caption */
+        font-size: 0.8em;
+    }
+
+    .opacity-low {
+        opacity: 0.5;
+    }
+
+    /* Style for image gallery tab starts here */
+    .tab-wrap {
+        transition: 0.3s box-shadow ease;
+        border-radius: 0.375vw; /*6px, 100vw=1600px */
+        max-width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        position: relative;
+        list-style: none;
+        background-color: #fff;
+        margin: 2.5vw 0; /*40px 0, 100vw=1600px */
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    }
+
+    .tab-wrap:hover {
+        box-shadow: 0 12px 23px rgba(0, 0, 0, 0.23), 0 10px 10px rgba(0, 0, 0, 0.19);
+    }
+
+    .tab {
+        display: none;
+    }
+
+    .tab:checked + label {
+        background-color: #fff;
+        box-shadow: 0 -1px 0 #fff inset;
+        cursor: default;
+    }
+
+    .tab:checked + label:hover {
+        background-color: #fff;
+    }
+
+    .tab + label {
+        box-shadow: 0 -1px 0 #eee inset;
+        border-radius: 0.375vw 0.375vw 0 0; /*6px, 100vw=1600px */
+        cursor: pointer;
+        display: block;
+        text-decoration: none;
+        color: #333;
+        flex-grow: 3;
+        text-align: center;
+        background-color: #f2f2f2;
+        user-select: none;
+        text-align: center;
+        transition: 0.3s background-color ease, 0.3s box-shadow ease;
+        height: 3.125vw; /*50px, 100vw=1600px */
+        box-sizing: border-box;
+        padding: 0.938vw; /*15px, 100vw=1600px */
+    }
+
+    .tab + label:hover {
+        background-color: #f9f9f9;
+        box-shadow: 0 1px 0 #f4f4f4 inset;
+    }
+
+    .tab:checked:nth-of-type(1) ~ .tab-content:nth-of-type(1),
+    .tab:checked:nth-of-type(2) ~ .tab-content:nth-of-type(2),
+    .tab:checked:nth-of-type(3) ~ .tab-content:nth-of-type(3),
+    .tab:checked:nth-of-type(4) ~ .tab-content:nth-of-type(4) {
+        opacity: 1;
+        transition: 0.5s opacity ease-in, 0.8s transform ease;
+        position: relative;
+        top: 0;
+        z-index: 100;
+        transform: translateY(0px);
+        text-shadow: none;
+    }
+
+    .tab-content {
+        padding: 0.625vw 1.563vw; /*10px 25px, 100vw=1600px */
+        background-color: transparent;
+        position: absolute;
+        width: 100%;
+        z-index: -1;
+        opacity: 0;
+        left: 0;
+        transform: translateY(-3px);
+        border-radius: 0.375vw; /*6px, 100vw=1600px */
+    }
+    /* Style for image gallery tab ends here */
+
+  </style>
+
+
+</head>
+<body>
+    <div class="container">
+        <header>
+          <div class="logo">
+            <p>MOHD FAHRURRAZI BIN HARON</p>
+          </div>
+          
+          <nav>
+            <ul>
+              <li><a href="index.html">ABOUT</a></li>
+              <li><a href="portfolio.html">PORTFOLIO</a></li>
+              <li><a href="experience.html">CV</a></li>
+              <li><a href="certification.html">CERTIFICATION</a></li>
+              <li><a href="gallery.html">GALLERY</a></li>
+              <li><a href="other.html">OTHER</a></li>
+              <li><a href="contact.html">CONTACT</a></li>
+            </ul>
+          </nav> 
+        </header>
+        
+        <div id="main-container">
+            <p class="heading">PAST PROJECTS PHOTO GALLERY</p>
+            <div class="tab-wrap">
+
+                <!-- active tab on page load gets checked attribute-->
+                <input type="radio" id="tab1" name="tabGroup1" class="tab" checked>
+                <label for="tab1">Fire Engineering</label>
+
+                <input type="radio" id="tab2" name="tabGroup1" class="tab">
+                <label for="tab2">Generator Set Skid</label>
+
+                <input type="radio" id="tab3" name="tabGroup1" class="tab">
+                <label for="tab3">Vehicle Chassis</label>
+
+                <input type="radio" id="tab4" name="tabGroup1" class="tab">
+                <label for="tab4">Switches & Electrical Wiring</label>
+
+                <div class="tab-content">
+                    <div class="image-gallery">
+                        <div class="img-box">
+                            <img src="assets/Fire Truck 4.jpg" alt="Foam Tender Fire Vehicle">
+                            <div class="transparent-box">
+                                <div class="caption">
+                                    <p>Foam Tender Fire Vehicle</p>
+                                    <p class="opacity-low">Bomba Malaysia (JBPM)</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="img-box">
+                            <img src="assets/Fire Truck 1.jpg" alt="Turntable Ladder Fire Vehicle">
+                            <div class="transparent-box">
+                                <div class="caption">
+                                    <p>Turntable Ladder Fire Vehicle</p>
+                                    <p class="opacity-low">Petronas CEFS PIC</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="img-box">
+                            <img src="assets/ALP4.jpg" alt="Aerial Ladder Fire Vehicle">
+                            <div class="transparent-box">
+                                <div class="caption">
+                                    <p>Aerial Ladder Platform Fire Vehicle</p>
+                                    <p class="opacity-low">Petronas CEFS Response Kerteh</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="img-box">
+                            <img src="assets/DWT.jpg" alt="Domestic Water Tender Fire Vehicle">
+                            <div class="transparent-box">
+                                <div class="caption">
+                                    <p>Domestic Water Tender Fire Vehicle</p>
+                                    <p class="opacity-low">Royal Malaysian Air Force (RMAF)</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="img-box">
+                            <img src="assets/Pump Skid 6.jpg" alt="Truck Mounted Fire Pump Skid">
+                            <div class="transparent-box">
+                                <div class="caption">
+                                    <p>Truck Mounted Fire Pump Skid</p>
+                                    <p class="opacity-low">Various projects</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="img-box">
+                            <img src="assets/Fire Hydrant 3.jpg" alt="Fire Hydrant">
+                            <div class="transparent-box">
+                                <div class="caption">
+                                    <p>Fire Hydrant</p>
+                                    <p class="opacity-low">Petronas LNG Train 9</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="img-box">
+                            <img src="assets/Fire Truck 3.jpg" alt="Foam Dry Powder Tender Fire Vehicle">
+                            <div class="transparent-box">
+                                <div class="caption">
+                                    <p>Foam Dry Powder Tender Fire Vehicle</p>
+                                    <p class="opacity-low">Petronas CEFS PIC</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="img-box">
+                            <img src="assets/PTTPE Thailand.jpg" alt="Foam Tender Fire Vehicle">
+                            <div class="transparent-box">
+                                <div class="caption">
+                                    <p>Foam Tender Fire Vehicle</p>
+                                    <p class="opacity-low">PTTPE Thailand</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="img-box">
+                            <img src="assets/MLNG.jpg" alt="Foam Tender Fire Vehicle">
+                            <div class="transparent-box">
+                                <div class="caption">
+                                    <p>Foam Tender Fire Vehicle</p>
+                                    <p class="opacity-low">Petronas MLNG</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="img-box">
+                            <img src="assets/RFRT.jpg" alt="Rapid Fire Rescue Tender Vehicle">
+                            <div class="transparent-box">
+                                <div class="caption">
+                                    <p>Rapid Fire Rescue Tender Vehicle</p>
+                                    <p class="opacity-low">Royal Malaysian Air Force (RMAF)</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="img-box">
+                            <img src="assets/Hazmat.jpg" alt="HAZMAT Response Vehicle">
+                            <div class="transparent-box">
+                                <div class="caption">
+                                    <p>HAZMAT Response Vehicle</p>
+                                    <p class="opacity-low">Petronas CEFS PIC</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="img-box">
+                            <img src="assets/BASF 3.jpg" alt="Fire Rescue Tender Vehicle">
+                            <div class="transparent-box">
+                                <div class="caption">
+                                    <p>Fire Rescue Tender Vehicle</p>
+                                    <p class="opacity-low">BASF Petronas Chemicals</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="img-box">
+                            <img src="assets/Shell MDS.jpg" alt="Foam Tender Vehicle">
+                            <div class="transparent-box">
+                                <div class="caption">
+                                    <p>Foam Tender Vehicle</p>
+                                    <p class="opacity-low">Shell MDS</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="img-box">
+                            <img src="assets/Water Tender.jpg" alt="Water Tender Fire Vehicle">
+                            <div class="transparent-box">
+                                <div class="caption">
+                                    <p>Water Tender Fire Vehicle</p>
+                                    <p class="opacity-low">Petronas CEFS PIC</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="img-box">
+                            <img src="assets/Lotte.jpg" alt="Ultra Large Foam Tender Vehicle">
+                            <div class="transparent-box">
+                                <div class="caption">
+                                    <p>Ultra Large Foam Tender Vehicle</p>
+                                    <p class="opacity-low">Lotte Chemical Titan</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="img-box">
+                            <img src="assets/MCOT.jpg" alt="Foam Tender Vehicle">
+                            <div class="transparent-box">
+                                <div class="caption">
+                                    <p>Foam Tender Vehicle</p>
+                                    <p class="opacity-low">Petronas MCOT</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-content">
+                    <div class="image-gallery">
+                        <div class="img-box">
+                            <img src="assets/genset1.jpg" alt="Diesel Generator Set">
+                            <div class="transparent-box">
+                                <div class="caption">
+                                    <p>Diesel Generator Set</p>
+                                    <p class="opacity-low">Freelance: Genset Redesign & Modification</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="img-box">
+                            <img src="assets/genset2.jpg" alt="Diesel Generator Set">
+                            <div class="transparent-box">
+                                <div class="caption">
+                                    <p>Diesel Generator Set</p>
+                                    <p class="opacity-low">Freelance: Genset Redesign & Modification</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="img-box">
+                            <img src="assets/genset3.jpg" alt="Diesel Generator Set">
+                            <div class="transparent-box">
+                                <div class="caption">
+                                    <p>Diesel Generator Set</p>
+                                    <p class="opacity-low">Freelance: Genset Redesign & Modification</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="img-box">
+                            <img src="assets/genset4.jpg" alt="Diesel Generator Set">
+                            <div class="transparent-box">
+                                <div class="caption">
+                                    <p>Diesel Generator Set</p>
+                                    <p class="opacity-low">Freelance: Genset Redesign & Modification</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-content">
+                    <div class="image-gallery">
+                        <div class="img-box">
+                            <img src="assets/Chassis1.jpg" alt="Front Sub-frame Module">
+                            <div class="transparent-box">
+                                <div class="caption">
+                                    <p>Front Sub-frame Module</p>
+                                    <p class="opacity-low">Proton Exora MPV model</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="img-box">
+                            <img src="assets/Chassis4.jpg" alt="Twist-Beam Rear Axle Module">
+                            <div class="transparent-box">
+                                <div class="caption">
+                                    <p>Twist-Beam Rear Axle Module</p>
+                                    <p class="opacity-low">Proton Saga FL/FLX: B-Segment Sedan</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="img-box">
+                            <img src="assets/Chassis5.jpg" alt="Front Sub-frame Module">
+                            <div class="transparent-box">
+                                <div class="caption">
+                                    <p>Front Sub-frame Module</p>
+                                    <p class="opacity-low">Proton Preve: C-Segment Sedan</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="img-box">
+                            <img src="assets/Lwr-Arm.jpg" alt="Front Lower Arm">
+                            <div class="transparent-box">
+                                <div class="caption">
+                                    <p>Front Lower Arm</p>
+                                    <p class="opacity-low">Proton Exora/Preve</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-content">
+                    <div class="image-gallery">
+                        <div class="img-box">
+                            <img src="assets/workpose 1.jpg" alt="Genset Switchboard Modification">
+                            <div class="transparent-box">
+                                <div class="caption">
+                                    <p>Genset Skid Switchboard Modification</p>
+                                    <p class="opacity-low">Freelance work</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="img-box">
+                            <img src="assets/workpose 2.jpg" alt="Genset Switchboard Modification">
+                            <div class="transparent-box">
+                                <div class="caption">
+                                    <p>Genset Skid Switchboard Modification</p>
+                                    <p class="opacity-low">Freelance work</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="img-box">
+                            <img src="assets/workpose 6.jpg" alt="Genset AVR unit installation">
+                            <div class="transparent-box">
+                                <div class="caption">
+                                    <p>Genset AVR unit installation</p>
+                                    <p class="opacity-low">Freelance work</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="img-box">
+                            <img src="assets/genset3.jpg" alt="Genset Switchboard Modification">
+                            <div class="transparent-box">
+                                <div class="caption">
+                                    <p>Genset Switchboard Modification</p>
+                                    <p class="opacity-low">Freelance work</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            
+        </div>
+
+        <footer>
+            <p>&copy; 2024 Razi Haron. All rights reserved.</p>
+          </footer>
+
+    </div>
+
+    <script src="script.js"></script>
+    
+</body>
+</html>
