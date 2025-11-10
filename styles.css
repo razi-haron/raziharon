@@ -304,8 +304,8 @@ h1, h2, h3, p, ul, li {
   .youtube-box {
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); /* Adding a shadow */
     border: none; /* Removing default border */
-    width: 450px; /*28.125vw, 100vw=1600px */
-    height: 253px; /*15.813vw, 100vw=1600px */
+    width: 380px; /*28.125vw, 100vw=1600px */
+    height: 214px; /*15.813vw, 100vw=1600px */
     margin-top: 0;
     margin-bottom: 1.25vw; /*20px, 100vw=1600px */
     margin-left: auto;
@@ -382,4 +382,5 @@ h1, h2, h3, p, ul, li {
     transform: scale(1.1);
     transition: transform 0.3s ease;
   }
+
 
